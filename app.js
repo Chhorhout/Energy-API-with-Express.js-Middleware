@@ -1,3 +1,8 @@
+/**
+ * Express Middleware Assignment - Securing the Energy API
+ * Middleware order: IP → CORS → Rate Limit → Auth
+ */
+require('dotenv').config();
 const path = require('path');
 const express = require('express');
 const cors = require('cors');
@@ -6,22 +11,22 @@ const basicAuth = require('express-basic-auth');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Static oil price data returned by /api/oil-prices
+// Static oil price data - exact structure per assignment spec
 const oilPriceData = {
   market: 'Global Energy Exchange',
   last_updated: '2024-03-15T12:55:00Z',
   currency: 'USD',
   data: [
     { symbol: 'WTI', name: 'West Texas Intermediate', price: 78.45, change: 0.12 },
-    { symbol: 'BRENT', name: 'Brent Crude', price: 82.3, change: -0.05 },
+    { symbol: 'BRENT', name: 'Brent Crude', price: 82.30, change: -0.05 },
     { symbol: 'NAT_GAS', name: 'Natural Gas', price: 2.15, change: 0.02 }
   ]
 };
 
-// Auth credentials (see README for testing)
-const BEARER_TOKEN = 'energy-api-secret-token-2024';
-const BASIC_AUTH_USER = 'admin';
-const BASIC_AUTH_PASS = 'energy123';
+// Auth credentials - from .env or fallback for testing (README has values)
+const BEARER_TOKEN = process.env.BEARER_TOKEN || 'energy-api-secret-token-2024';
+const BASIC_AUTH_USER = process.env.BASIC_AUTH_USER || 'admin';
+const BASIC_AUTH_PASS = process.env.BASIC_AUTH_PASS || 'energy123';
 
 // 1. IP Filter: Only allow localhost (127.0.0.1, ::1). Block others with 403.
 const ipFilter = (req, res, next) => {

@@ -21,3 +21,5 @@ energy-api-secret-token-2024
 **Basic Auth** (for `/dashboard`):
 - Username: `admin`
 - Password: `energy123`
+
+For production, set env vars: `BEARER_TOKEN`, `BASIC_AUTH_USER`, `BASIC_AUTH_PASS`
