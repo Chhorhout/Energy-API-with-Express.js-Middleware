@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: linear-gradient(135deg, #0f0f12 0%, #1a1a24 50%, #0d0d10 100%);
+  min-height: 100vh;
+  color: #e4e4e7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.logged-out-card {
+  text-align: center;
+  max-width: 420px;
+  padding: 2.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+}
+
+.logged-out-card h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #e4e4e7;
+  margin-bottom: 0.75rem;
+}
+
+.logged-out-card p {
+  font-size: 1rem;
+  color: #a1a1aa;
+  margin-bottom: 1.5rem;
+}
+
+.dashboard-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  background: rgba(251, 191, 36, 0.15);
+  color: #fbbf24;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  border: 1px solid rgba(251, 191, 36, 0.25);
+}
+
+.dashboard-btn:hover {
+  background: rgba(251, 191, 36, 0.25);
+  border-color: rgba(251, 191, 36, 0.4);
+}
